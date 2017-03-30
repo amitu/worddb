@@ -1,0 +1,6 @@
+gsub==0.1.1
+django==1.10.6
+pip==9.0.1
+doit==0.30.3
+six==1.10.0
+requests==
