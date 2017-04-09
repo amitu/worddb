@@ -1,0 +1,29 @@
+-   repo: git://github.com/pre-commit/pre-commit-hooks
+    sha: v0.7.1
+    hooks:
+    -   id: trailing-whitespace
+    -   id: check-merge-conflict
+    -   id: check-json
+    -   id: pretty-format-json
+        args: ["--autofix", "--indent=  ", "--no-sort-keys"]
+    -   id: fix-encoding-pragma
+    -   id: debug-statements
+    -   id: check-added-large-files
+        args: [--maxkb=500]
+    -   id: flake8
+        args: [--max-line-length=119, --ignore=W503]
+        exclude: (.*/migrations/.*\.py)$
+    -   id: flake8
+        name: Flake8 migrations
+        args: ["--ignore=E501,W503", "--max-line-length=119"]
+        files: (.*/migrations/.*\.py)$
+-   repo: local
+    hooks:
+    -   id: isort
+        name: Sorting Imports
+        entry: isort
+        language: system
+        args: ["-y"]
+        files: \.py$
+        exclude: (.*/migrations/.*)$
+        requirements: true

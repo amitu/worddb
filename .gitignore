@@ -25,3 +25,8 @@ _testmain.go
 *.test
 *.prof
 .doit.db
+
+.idea/
+local_settings.py
+static/*
+media/*

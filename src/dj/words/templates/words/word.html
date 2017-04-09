@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Word</th><td>{{ word.word }}</td>
+            </tr>
+            <tr>
+                <th>Language</th><td>{{ word.language }}</td>
+            </tr>
+            <tr>
+                <th>Root</th><td>{{ word.root }}</td>
+            </tr>
+            <tr>
+                <th>Pronunciation</th>
+                <td>
+                    <table>
+                        <tr>
+                            <th>{{ foreign_language }}</th>
+                            <td>{{ foreign_pronunciation }}</td>
+                        </tr>
+                        <tr>
+                            <th>{{ native_language }}</th>
+                            <td>{{ native_pronunciation }}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <th>{{ foreign_language }}</th>
+                <td>
+                    {% if native %}
+                    <table>
+                        <tr>
+                            <th>pronunciation: </th>
+                            <td>  {{ foreign_pronunciation }}</td>
+                        </tr>
+                        <tr>
+                            <th>meanings: </th>
+                            <td>
+                                {% for item in native.meanings %}
+                                <a href="/en_US/{{ item }}/hi/"> {{ item }},</a>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>synonyms: </th>
+                            <td>
+                                {% for item in native.synonyms %}
+                                <a href="/en_US/{{ item }}/hi/"> {{ item }},</a>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>antonyms: </th>
+                            <td>
+                                {% for item in native.antonyms %}
+                                <a href="/en_US/{{ item }}/hi/"> {{ item }}, </a>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    </table>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>{{ native_language }}</th>
+                <td>
+                    <table>
+                        <tr>
+                            <th>pronunciation: </th>
+                            <td>  {{ native_pronunciation }}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
