@@ -1,6 +1,13 @@
-gsub==0.1.1
-django==1.10.6
-pip==9.0.1
+django-extensions==1.7.8
+django==1.11
 doit==0.30.3
+gsub==0.1.1
+ipython==5.3.0
+isort==4.2.5
+pip==9.0.1
+pre-commit==0.13.6
+psycopg2==2.7.1
+requests==2.13.0
 six==1.10.0
-requests==
+Babel==2.4.0
+django-prettyjson==0.2.2
